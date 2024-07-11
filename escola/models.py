@@ -21,3 +21,6 @@ class Curso(models.Model):
     codigo = models.CharField(max_length= 10)
     codigo = models.CharField(max_length= 100, blank=False) #'blank=False' é utilizado para quando algum campo não pode ficar em branco
     nivel = models.CharField(max_length= 1, choices= NIVEL,  blank= False, null= False, default= 'B')
+
+    def __str__(self):
+        return self.codigo
