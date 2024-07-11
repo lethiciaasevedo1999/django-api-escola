@@ -1,14 +1,5 @@
 from django.db import models
 
-'''
-Id
-Nome
-E-mail
-Não pode estar em branco
-CPF
-Máximo de 11 caracteres
-Data de Nascimento
-'''
 
 class Estudante(models.Model):
     nome = models.CharField(max_length= 100)
@@ -19,3 +10,14 @@ class Estudante(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Curso(models.Model):
+    NIVEL = (
+        ('B','Básica'),
+        ('I', 'Intermediário'),
+        ('A', 'Avançado'),
+    )
+    codigo = models.CharField(max_length= 10)
+    codigo = models.CharField(max_length= 100, blank=False) #'blank=False' é utilizado para quando algum campo não pode ficar em branco
+    nivel = models.CharField(max_length= 1, choices= NIVEL,  blank= False, null= False, default= 'B')
